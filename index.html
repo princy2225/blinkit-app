@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>blinkit App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+  <!-- favicon icon -->
+  <link rel="icon" type="image/icon" media="screen" href="images/favicon-icon.png">
+  <!-- bootrap icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+<header class="bg-white shadow sticky top-0 z-50">
+  <div class="max-w-full mx-auto px-4 py-5 flex items-center justify-between">
+
+    <!-- LOGO -->
+    <h1 class="text-amber-300 text-4xl font-extrabold">
+      blink<span class="text-green-600">it</span>
+    </h1>
+
+    <!-- TOGGLE (Mobile & Tablet only) -->
+    <button id="menuBtn" class="lg:hidden text-3xl">
+      ☰
+    </button>
+
+    <!-- DESKTOP CONTENT -->
+    <div class="hidden lg:flex items-center gap-6 flex-1 ml-6">
+
+      <!-- LOCATION -->
+      <div id="openLocation" class="cursor-pointer">
+        <h2 class="font-bold">Delivery in 8 minutes</h2>
+        <p class="text-sm text-gray-600">
+          B62, Pocket B, South City
+        </p>
+      </div>
+
+      <!-- SEARCH -->
+      <input
+        type="text"
+        placeholder="🔍 Search for products..."
+        class="flex-1 border rounded-lg px-4 py-2 bg-gray-50 focus:ring-2 focus:ring-yellow-300" />
+
+      <!-- LOGIN + CART -->
+      <button class="openLogin text-xl px-4 py-2 hover:bg-gray-100 rounded">
+        Login
+      </button>
+
+      <button class="bg-gray-100 px-4 py-2 rounded">
+        🛒 My Cart
+      </button>
+
+    </div>
+  </div>
+</header>
+<!-- Toggle menu -->
+ <!-- MOBILE / TABLET MENU -->
+<div id="menu" class="hidden lg:hidden border-t px-4 py-4 space-y-4">
+
+  <!-- LOCATION -->
+  <button
+    id="openLocationMobile"
+    class="w-full text-left">
+    <h2 class="font-bold">Delivery in 8 minutes</h2>
+    <p class="text-sm text-gray-600">
+      B62, Pocket B, South City
+    </p>
+  </button>
+
+  <!-- SEARCH -->
+  <input
+    type="text"
+    placeholder="🔍 Search for products..."
+    class="w-full border rounded-lg px-4 py-2 bg-gray-50" />
+
+  <!-- LOGIN -->
+  <button class="openLogin w-full py-3 border rounded-lg">
+    Login
+  </button>
+
+  <!-- CART -->
+  <button class="w-full py-3 bg-gray-100 rounded-lg">
+    🛒 My Cart
+  </button>
+
+</div>
+
+
+<!-- LOCATION MODAL -->
+<div id="locationModal" class="hidden fixed inset-0 bg-black/75 z-50 flex items-center justify-center px-4">
+
+
+  <div class="bg-white w-full max-w-md rounded-xl shadow-lg">
+
+    <!-- Modal Header -->
+    <div class="flex justify-between items-center px-5 py-4 border-b">
+      <h2 class="text-lg font-bold">Select delivery location</h2>
+      <button id="closeLocation" class="text-2xl leading-none">&times;</button>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="p-6 space-y-2">
+
+      <button
+        class="w-full border rounded-lg py-3 hover:bg-gray-50">
+        📍 Use my current location
+      </button>
+
+      <input type="text" placeholder="Search for area, street name..." class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-400"/>
+
+      <!-- Saved locations -->
+      <div class="border rounded-lg p-4">
+        <p class="font-semibold">Home</p>
+        <p class="text-sm text-gray-500"> Khodiyar krupa, near raiya telephone exchange, Rajkot-360005</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<!-- MODAL OVERLAY LOGIN-->
+<div id="loginModal"
+  class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center">
+
+  <div class="bg-white w-full max-w-md rounded-xl shadow-lg relative">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center px-5 py-4 border-b">
+      <h1 class="text-2xl font-bold text-amber-300">
+        Blink<span class="text-green-600">it</span>
+      </h1>
+      <button id="closeModal" class="text-3xl">&times;</button>
+    </div>
+
+    <!-- Body -->
+    <div class="p-6 text-center">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Blinkit-yellow-rounded.svg"
+        class="w-20 mx-auto mb-4" />
+
+      <h2 class="text-2xl font-bold">India's last minute app</h2>
+      <p class="text-gray-700 mt-2">Log in or Sign up</p>
+
+      <input
+        type="tel"
+        placeholder="Enter your phone number"
+        class="w-full mt-5 border rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-400" />
+
+      <button
+        class="w-full mt-4 bg-gray-400 hover:bg-gray-500 text-white py-3 rounded-lg">
+        Continue
+      </button>
+    </div>
+
+    <div class="text-sm text-center text-gray-600 px-6 py-4 border-t">
+      By continuing, you agree to our
+      <span class="border-b border-dotted border-b-gray-600">Terms & Privacy Policy</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- Banner Section -->
+   <section
+  class="w-full mx-auto mt-4
+         sm:max-w-[90%] md:max-w-[85%] lg:max-w-[85%]
+         rounded-2xl overflow-hidden">
+
+  <!-- TOP BANNER -->
+  <div
+    class="h-60 flex flex-col justify-center items-start
+           px-10 text-white rounded-2xl
+           bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('../images/banner-1.jpg')]
+           bg-cover bg-center">
+
+    <h1 class="text-4xl font-bold mb-2">Paan Corner</h1>
+    <p class="mb-4">Your favourite paan shop is now online</p>
+
+    <button
+      class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg border-b-4 border-b-green-800">
+      Shop now
+    </button>
+  </div>
+
+  <!-- 3 CARDS SECTION -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-6 bg-white">
+
+    <!-- CARD 1 -->
+    <div
+      class="h-48 rounded-xl text-white flex flex-col justify-center px-6 bg-[url('../images/pharmacy.jpg')] bg-cover bg-right">
+      <h1 class="text-xl font-bold">Pharmacy at your doorstep!</h1>
+      <p class="text-sm mt-1">Cough syrups, Pain relief & more</p>
+      <button class="mt-3 bg-white text-black px-4 py-2 rounded-lg w-fit">
+        Order now
+      </button>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="h-48 rounded-xl flex flex-col justify-center px-6 bg-[url('../images/petcare.jpg')] bg-cover bg-right">
+      <h1 class="text-xl font-bold">Pet Care Supplies</h1>
+      <p class="text-sm mt-1">Food, treats, toys & more</p>
+      <button class="mt-3 bg-white text-black px-4 py-2 rounded-lg w-fit">
+        Order now
+      </button>
+    </div>
+
+    <!-- CARD 3 -->
+    <div
+      class="h-48 rounded-xl flex flex-col justify-center px-6 bg-[url('../images/babys-diaper.jpg')] bg-cover bg-right">
+      <h1 class="text-xl font-bold">No time for a diaper run?</h1>
+      <p class="text-sm mt-1">Baby care essentials in minutes</p>
+      <button class="mt-3 bg-white text-black px-4 py-2 rounded-lg w-fit">
+        Order now
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- products images -->
+    
+     <section class="w-full mx-auto sm:max-w-[90%] md:max-w-[85%] lg:max-w-[85%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-10 gap-2 mt-5 mb-7">
+
+      <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img1.avif" alt="image1" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img2.avif" alt="image2" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img3.avif" alt="image3" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img4.avif" alt="image4" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img5.avif" alt="image5" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img6.avif" alt="image6" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img7.avif" alt="image7" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img8.avif" alt="image8" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img9.avif" alt="image9" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img10.avif" alt="image10" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img11.avif" alt="image11" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img12.avif" alt="image12" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img13.avif" alt="image13" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2"">
+        <img src="images/img14.avif" alt="image14" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img15.avif" alt="image15" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img16.avif" alt="image16" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img17.avif" alt="image17" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img18.avif" alt="image18" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img19.avif" alt="image19" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img20.avif" alt="image20" class="w-full h-40 object-cover rounded-md mb-4">
+        </div>
+
+      </section>
+
+<!-- Dairy,braed prod-1 -->
+     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[85%] mx-auto mt-7 gap-3">
+        
+      <div class="flex justify-between mb-5 lg:text-2xl md:text-xl sm:text-xl md:font-medium sm:font-medium">
+      <h1 class="text-2xl font-bold">Dairy, Bread & Eggs</h1>
+      <a href="#" class="text-lg text-green-500 font-medium">See all</a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6 mb-5">
+
+         <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/amul-taza-milk.webp" alt="image1" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>Amul Taaza Toned Milk</h2>
+              <p class="text-sm text-gray-500">500 ml</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 29</span>
+              <button class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/amul-gold-full-cream-milk.webp" alt="image2" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>Amul Gold Full Cream Milk</h2>
+              <p class="text-sm text-gray-500">500 ml</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 35</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/amul-dahi.avif" alt="image3" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>Amul Masti Pouch Curd</h2>
+              <p class="text-sm text-gray-500">390 g</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 35</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/amul-salted-butter.jpg" alt="image4" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>Amul Salted Butter</h2>
+              <p class="text-sm text-gray-500">100 g</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 98</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/wheat-bread.webp" alt="image5" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>Harvest Gold 100% Atta Whole Wheat Bread</h2>
+              <p class="text-sm text-gray-500">450 g</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 60</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/white-bread.png" alt="image6" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>Harvest Gold White Bread</h2>
+              <p class="text-sm text-gray-500">350 g</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 30</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+      </div>
+     </section>
+
+<!-- Rolling paper prod-2 -->
+     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[85%] mx-auto mt-7 gap-3">
+        
+      <div class="flex justify-between mb-5 lg:text-2xl md:text-xl sm:text-xl md:font-medium sm:font-medium">
+      <h1 class="text-2xl font-bold">Rolling paper & tobacco</h1>
+      <a href="#" class="text-lg text-green-500 font-medium">See all</a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6 mb-5">
+
+         <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/ultimate-rolling-paper.webp" alt="image1" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>ultimate rolling paper with filter tips</h2>
+              <p class="text-sm text-gray-500">32 piece</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 90</span>
+              <button class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/perfect-roll-cones.webp" alt="image2" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>Perfect roll cones (natural)</h2>
+              <p class="text-sm text-gray-500">3 Pack</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 45</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/brown-rolling-papers.webp" alt="image3" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>Brown rolling paper cone stash-pro</h2>
+              <p class="text-sm text-gray-500">6 Piece</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 90</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/brown-riper-rolling-paper.webp" alt="image4" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>Browm ripper rolling paper +32 leaves</h2>
+              <p class="text-sm text-gray-500">64 Piece</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 120</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/color-roch-stashpro.webp" alt="image5" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>Colour roach-stash pro </h2>
+              <p class="text-sm text-gray-500">32 Sheets</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 50</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/thins-pre-rolledcones.webp" alt="image6" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>thins pre rolled cones</h2>
+              <p class="text-sm text-gray-500">3 Pack (6 Piece)</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 60</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+      </div>
+     </section>
+
+<!-- Snacks & Munchies prod-3 -->
+     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[85%] mx-auto mt-7 gap-3">
+        
+      <div class="flex justify-between mb-5 lg:text-2xl md:text-xl sm:text-xl md:font-medium sm:font-medium">
+      <h1 class="text-2xl font-bold">Snacks & Munchies</h1>
+      <a href="#" class="text-lg text-green-500 font-medium">See all</a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6 mb-5">
+
+         <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/kettle -studio.webp" alt="image1" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>Kettle studio Rock Sea salt</h2>
+              <p class="text-sm text-gray-500">113 g</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 99</span>
+              <button class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/kettle-studio-air-fried-lime&chilli-potato.webp" alt="image2" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>Kettle studio Air Fried lime & chilli potato</h2>
+              <p class="text-sm text-gray-500">80 g</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 99</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/kettle-studio-air-fried-sweetsmoky-bbq.jpg" alt="image3" class="w-75 mx-auto h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>Kettle studio Air Fried sweet & smoky BBQ</h2>
+              <p class="text-sm text-gray-500">80 g</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 99</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/pringles-original-potato-chips.webp" alt="image4" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>Pringles Original potato chips-pack of 2</h2>
+              <p class="text-sm text-gray-500">2 x 107 g</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 187</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/protein-chef-baked-coated-peanuts.avif" alt="image5" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>Protein chef baked coated peanuts(masala)</h2>
+              <p class="text-sm text-gray-500">50 g</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 69</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/beanly-choco-hazelnut-dibs-with-breadsticks.avif" alt="image6" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛11 MINS</h5>
+              <h2>beanly choco Hazelnut Spread with breadsticks</h2>
+              <p class="text-sm text-gray-500">52 g</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 60</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+      </div>
+     </section>
+
+<!-- Cold Drinks & Juices prod-4 -->
+     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[85%] mx-auto mt-7 gap-3">
+        
+      <div class="flex justify-between mb-5 lg:text-2xl md:text-xl sm:text-xl md:font-medium sm:font-medium">
+      <h1 class="text-2xl font-bold">Cold Drinks & Juices</h1>
+      <a href="#" class="text-lg text-green-500 font-medium">See all</a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6 mb-5">
+
+         <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/coca-cola.webp" alt="image1" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>Coca Cola soft drinks (750 ml)</h2>
+              <p class="text-sm text-gray-500">750 ml</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 37</span>
+              <button class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/amul-lactose-free-milk.webp" alt="image2" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>Amul Lactose free milk</h2>
+              <p class="text-sm text-gray-500">250 ml</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 25</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/cola-cola-diet-coke.webp" alt="image3" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>Coca-cola Diet coke soft drinks</h2>
+              <p class="text-sm text-gray-500">300 ml</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 40</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/bisleri-water.avif" alt="image4" class="w-75 mx-auto h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>Bisleri Packeged Water</h2>
+              <p class="text-sm text-gray-500">1 ltr</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 18</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/surili-aam-papad.webp" alt="image5" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>SURILI Aam Papad Mukhvas mouth freshner</h2>
+              <p class="text-sm text-gray-500">750 ml</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 40</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2 hover:shadow-md">
+              <img src="images/limca-lemon.jpg" alt="image6" class="w-full h-36">
+              <h5 class="text-sm text-gray-500">🕛8 MINS</h5>
+              <h2>Limca Lemon 'N' Lime soft drink </h2>
+              <p class="text-sm text-gray-500">750 ml</p>
+              <div class="flex justify-between p-2">
+              <span class="px-2 py-2 font-semibold">&#8377; 40</span>
+              <button  class="text-green-400 font-bold px-2 py-1 border border-green-600 rounded-lg bg-green-50">Add</button>
+              </div>
+            </div>
+      </div>
+     </section>
+
+<!-- Footer -->
+ <footer class="bg-white border-t mt-20">
+
+  <section class="w-full max-w-[85%] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 py-10 md:text-sm sm:text-sm text-gray-600">
+
+    <!-- Useful Links -->
+    <div>
+      <h2 class="text-lg font-semibold text-black mb-5">Useful Links</h2>
+      <ul class="space-y-2">
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="mt-6 sm:mt-11">
+      <ul class="space-y-2">
+        <li><a href="#">Franchise</a></li>
+        <li><a href="#">Seller</a></li>
+        <li><a href="#">Warehouse</a></li>
+        <li><a href="#">Deliver</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Partner</a></li>
+      </ul>
+    </div>
+
+    <div class="mt-6 sm:mt-11">
+      <ul class="space-y-2">
+        <li><a href="#">Recipes</a></li>
+        <li><a href="#">Bistro</a></li>
+        <li><a href="#">District</a></li>
+      </ul>
+    </div>
+
+    <!-- Categories -->
+    <div>
+      <h2 class="text-lg font-semibold text-black mb-5">Categories</h2>
+      <ul class="space-y-2">
+        <li><a href="#">Vegetables & Fruits</a></li>
+        <li><a href="#">Cold Drinks & Juices</a></li>
+        <li><a href="#">Bakery & Biscuits</a></li>
+        <li><a href="#">Dry Fruits, Masala & Oil</a></li>
+        <li><a href="#">Pharma & Wellness</a></li>
+        <li><a href="#">Personal Care</a></li>
+        <li><a href="#">Kitchen & Dining</a></li>
+        <li><a href="#">Stationery Needs</a></li>
+        <li><a href="#">Print Store</a></li>
+      </ul>
+    </div>
+
+    <div class="mt-6 sm:mt-11">
+      <ul class="space-y-2">
+        <li><a href="#">Dairy & Breakfast</a></li>
+        <li><a href="#">Sweet Tooth</a></li>
+        <li><a href="#">Sauces & Spreads</a></li>
+        <li><a href="#">Cleaning Essentials</a></li>
+        <li><a href="#">Pet Care</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">Fashion & Accessories</a></li>
+        <li><a href="#">E-Gift Cards</a></li>
+      </ul>
+    </div>
+
+    <div class="mt-6 sm:mt-11">
+      <ul class="space-y-2">
+        <li><a href="#">Munchies</a></li>
+        <li><a href="#">Tea, Milk & Coffee</a></li>
+        <li><a href="#">Atta, Rice & Dal</a></li>
+        <li><a href="#">Baby Care</a></li>
+        <li><a href="#">Beauty Cosmetics</a></li>
+        <li><a href="#">Electronics & Electricals</a></li>
+        <li><a href="#">Toys & Games</a></li>
+        <li><a href="#">Rakhi Gifts</a></li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- FOOTER BOTTOM -->
+  <div class="border-t">
+    <div
+      class="max-w-[85%] mx-auto
+             flex flex-col md:flex-row
+             items-center justify-between
+             gap-4 py-6 text-sm text-gray-600">
+
+      <p>© Blink Commerce Private Limited, 2016–2025</p>
+
+      <div class="flex gap-4 text-xl">
+        <i class="bi bi-whatsapp hover:text-green-600"></i>
+        <i class="bi bi-facebook hover:text-blue-600"></i>
+        <i class="bi bi-instagram hover:text-pink-500"></i>
+        <i class="bi bi-twitter hover:text-sky-500"></i>
+        <i class="bi bi-linkedin hover:text-blue-700"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="bg-gray-50">
+    <p class="max-w-[85%] mx-auto text-xs lg:text-sm sm:text-xs md:text-xs text-gray-500 py-4 leading-relaxed"> “Blinkit” is owned & managed by "Blink Commerce Private Limited" and is not related, linked or interconnected in whatsoever manner or nature, to “GROFFR.COM” which is a real estate services business operated by “Redstone Consultancy Services Private Limited”. </p>
+  </div>
+
+</footer>
+
+<script>
+  // Toggle menu
+  menuBtn.onclick = () => {
+    menu.classList.toggle("hidden");
+  };
+
+  // Open login modal
+  document.querySelectorAll(".openLogin").forEach(btn => {
+    btn.onclick = () => {
+      loginModal.classList.remove("hidden");
+      menu.classList.add("hidden");
+    };
+  });
+
+  // Open location modal (desktop & mobile)
+  openLocation.onclick = () => {
+    locationModal.classList.remove("hidden");
+  };
+
+  openLocationMobile.onclick = () => {
+    locationModal.classList.remove("hidden");
+    menu.classList.add("hidden");
+  };
+
+  // Close modals
+  closeModal.onclick = () => loginModal.classList.add("hidden");
+  closeLocation.onclick = () => locationModal.classList.add("hidden");
+</script>
+</body>
+</html>

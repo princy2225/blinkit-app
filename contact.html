@@ -1,72 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Blinkit faqs</title>
+  <title>Contact Us | Blinkit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
-<!-- header -->
-   <header class="bg-white sticky top-0 z-50 shadow">
-  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
 
-    <!-- BLINKIT LOGO (GO TO MAIN PAGE) -->
-    <a href="index.html" class="font-bold text-2xl text-green-600 cursor-pointer">blinkit</a>
+<!-- HEADER -->
+<header class="bg-white sticky top-0 z-50 shadow">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <a href="index.html" class="text-2xl font-bold text-green-600">
+      blinkit
+    </a>
 
-    <!-- NAV LINKS -->
     <nav class="hidden md:flex gap-6 text-sm font-medium">
       <a href="blog.html" class="hover:text-green-600">Blog</a>
       <a href="faqs.html" class="hover:text-green-600">FAQs</a>
-      <a href="contact.html" class="hover:text-green-600">Contact</a>
+      <a href="contact.html" class="text-green-600">Contact</a>
       <a href="security.html" class="hover:text-green-600">Security</a>
     </nav>
-
   </div>
 </header>
-<!-- FAQ Main -->
-<section class="max-w-5xl mx-auto p-6">
-  <h1 class="text-3xl font-bold mb-8">FAQs</h1>
 
-  <div class="space-y-4">
+<!-- HERO -->
+<section class="max-w-7xl mx-auto px-4 py-10">
+  <h1 class="text-3xl md:text-4xl font-bold mb-3">Contact Us</h1>
+  <p class="text-gray-600 max-w-2xl">
+    Need help with an order or have a question? We’re here to help you.
+  </p>
+</section>
 
-    <!-- FAQ ITEM -->
-    <details class="group bg-white rounded-lg shadow p-5">
-      <summary class="flex justify-between items-center cursor-pointer list-none">
-        <h2 class="font-semibold text-lg"> How fast is Blinkit delivery?</h2>
+<!-- CONTACT CONTENT -->
+<section class="max-w-7xl mx-auto px-4 pb-20">
+  <div class="grid md:grid-cols-2 gap-10">
 
-        <!-- PLUS / MINUS -->
-        <span class="text-2xl font-bold transition-transform group-open:rotate-45">  + </span>
-      </summary>
+    <!-- LEFT INFO -->
+    <div class="space-y-6">
+      <div class="bg-white rounded-xl shadow p-6">
+        <h2 class="font-semibold text-lg mb-2">📍 Office Address</h2>
+        <p class="text-gray-600 text-sm">
+          Blink Commerce Private Limited<br>Gurgaon, Haryana – India </p>
+      </div>
 
-      <p class="text-gray-600 mt-3 leading-relaxed"> Most orders are delivered within 8 minutes depending on location and availability.</p>
-    </details>
+      <div class="bg-white rounded-xl shadow p-6">
+        <h2 class="font-semibold text-lg mb-2">📞 Customer Support</h2>
+        <p class="text-gray-600 text-sm">Available 24x7 via in-app chat<br>
+          Email: <span class="text-green-600">support@blinkit.com</span></p>
+      </div>
 
-    <!-- FAQ ITEM -->
-    <details class="group bg-white rounded-lg shadow p-5">
-      <summary class="flex justify-between items-center cursor-pointer list-none">
-        <h2 class="font-semibold text-lg"> Is Blinkit available in my city?</h2>
+      <div class="bg-white rounded-xl shadow p-6">
+        <h2 class="font-semibold text-lg mb-2">⏱ Delivery Support</h2>
+        <p class="text-gray-600 text-sm"> Orders delivered in 8 minutes*<br> Live tracking available in app</p>
+      </div>
+    </div>
 
-        <span class="text-2xl font-bold transition-transform group-open:rotate-45"> + </span>
-      </summary>
+    <!-- RIGHT FORM -->
+    <div class="bg-white rounded-xl shadow p-8">
+      <h2 class="text-xl font-semibold mb-6">Send us a message</h2>
 
-      <p class="text-gray-600 mt-3 leading-relaxed">Blinkit is currently available in major Indian cities and expanding rapidly.</p>
-    </details>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your Name" class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none"/>
 
-    <!-- FAQ ITEM -->
-    <details class="group bg-white rounded-lg shadow p-5">
-      <summary class="flex justify-between items-center cursor-pointer list-none">
-        <h2 class="font-semibold text-lg"> What items can I order?</h2>
+        <input type="email" placeholder="Email Address" class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none"/>
 
-        <span class="text-2xl font-bold transition-transform group-open:rotate-45"> + </span>
-      </summary>
+        <textarea rows="4" placeholder="Your Message" class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none"></textarea>
 
-      <p class="text-gray-600 mt-3 leading-relaxed">You can order groceries, medicines, snacks, electronics, pet care and more.</p>
-    </details>
+        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-medium transition"> Send Message</button>
+      </form>
+    </div>
 
   </div>
 </section>
+
 
 <!-- Footer -->
  <footer class="bg-white border-t mt-20">
@@ -175,6 +183,5 @@
   </div>
 
 </footer>
-
 </body>
 </html>

@@ -18,12 +18,39 @@
   .animate-scale {
     animation: scaleIn 0.2s ease-out;
   }
+ <style>
+  /* Google Translate UI Fix */
+  select.goog-te-combo {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  .goog-te-gadget {
+    font-size: 0;
+  }
+
+  .goog-te-gadget span {
+    display: none;
+  }
+
+  iframe.goog-te-banner-frame {
+    display: none !important;
+  }
+
+  body {
+    top: 0 !important;
+  }
 </style>
 
 </head>
 <body>
 
-<header class="bg-white shadow sticky top-0 z-50">
+<header class="bg-white shadow sticky top-0 z-50 ">
   <div class="max-w-full mx-auto px-4 py-5 flex items-center justify-between">
 
     <!-- LOGO -->
@@ -32,7 +59,7 @@
     </h1>
 
     <!-- TOGGLE (Mobile & Tablet only) -->
-    <button id="menuBtn" class="lg:hidden text-3xl">
+    <button id="menuBtn" class="lg:hidden md:hidden text-3xl">
       ☰
     </button>
 
@@ -48,10 +75,7 @@
       </div>
 
       <!-- SEARCH -->
-      <input
-        type="text"
-        placeholder="🔍 Search for products..."
-        class="flex-1 border rounded-lg px-4 py-2 bg-gray-50 focus:ring-2 focus:ring-yellow-300" />
+      <input type="text" placeholder="🔍 Search for products..."class="flex-1 border rounded-lg px-4 py-2 bg-gray-50 focus:ring-2 focus:ring-yellow-300" />
 
       <!-- LOGIN + CART -->
       <button class="openLogin text-xl px-4 py-2 hover:bg-gray-100 rounded">
@@ -84,9 +108,9 @@
   </button>
 
   <!-- CART -->
-  <button class="w-full py-3 bg-gray-100 rounded-lg">
-    🛒 My Cart
-  </button>
+  <button onclick="openCart()" aria-label="Open cart" class="w-full py-3 bg-gray-100 rounded-lg">
+  🛒 My Cart
+</button>
 
 </div>
 
@@ -160,7 +184,7 @@
 
 <!-- CART MODAL -->
 <div id="cartModal"
-  class="fixed inset-0 z-[999] hidden items-center justify-center bg-black/75">
+  class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/75">
 
   <!-- Modal Box -->
   <div
@@ -252,64 +276,64 @@
      <section class="w-full mx-auto sm:max-w-[90%] md:max-w-[90%] lg:max-w-[90%] grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10 gap-3 mt-5 mb-7">
 
       <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img1.avif" alt="image1" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img1.avif" alt="image1" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img2.avif" alt="image2" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img2.avif" alt="image2" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img3.avif" alt="image3" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img3.avif" alt="image3" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img4.avif" alt="image4" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img4.avif" alt="image4" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img5.avif" alt="image5" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img5.avif" alt="image5" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img6.avif" alt="image6" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img6.avif" alt="image6" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img7.avif" alt="image7" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img7.avif" alt="image7" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img8.avif" alt="image8" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img8.avif" alt="image8" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img9.avif" alt="image9" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img9.avif" alt="image9" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img10.avif" alt="image10" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img10.avif" alt="image10" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img11.avif" alt="image11" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img11.avif" alt="image11" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img12.avif" alt="image12" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img12.avif" alt="image12" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img13.avif" alt="image13" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
-        </div>
-        <div class="bg-white rounded-lg shadow p-2"">
-        <img src="images/img14.avif" alt="image14" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img13.avif" alt="image13" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img15.avif" alt="image15" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img14.avif" alt="image14" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img16.avif" alt="image16" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img15.avif" alt="image15" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img17.avif" alt="image17" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img16.avif" alt="image16" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img18.avif" alt="image18" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img17.avif" alt="image17" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img19.avif" alt="image19" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img18.avif" alt="image18" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
         <div class="bg-white rounded-lg shadow p-2">
-        <img src="images/img20.avif" alt="image20" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4">
+        <img src="images/img19.avif" alt="image19" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
+        </div>
+        <div class="bg-white rounded-lg shadow p-2">
+        <img src="images/img20.avif" alt="image20" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
         </div>
 
       </section>
@@ -689,9 +713,28 @@
 
   <!-- FOOTER BOTTOM -->
   <div class="border-t">
-    <div class="max-w-[87%] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 py-6 text-sm text-gray-600">
+    <div class="max-w-[87%] mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 items-center py-6 text-sm text-gray-600">
 
       <p>© Blink Commerce Private Limited, 2016–2025</p>
+
+       <!-- App Buttons -->
+        <div class="space-y-2">
+          <button class="w-50 bg-black text-white py-2 px-2 rounded-lg text-xs">
+            Download on App Store
+          </button>
+          <button class="w-50 bg-black text-white py-2 px-2 rounded-lg text-xs">
+            Get it on Google Play
+          </button>
+        </div>
+
+   <!-- Google Translate -->
+<div class="mt-6 md:mt-0">
+  <h3 class="font-semibold text-gray-900 mb-3 flex items-center gap-2"> 🌍 Language </h3>
+
+  <div class="bg-gray-100 border border-gray-300 rounded-xl p-1 w-full max-w-[100px]">
+    <div id="google_translate_element"></div>
+  </div>
+</div>
 
       <div class="flex gap-4 text-xl">
         <i class="bi bi-whatsapp hover:text-green-600"></i>
@@ -703,19 +746,38 @@
     </div>
   </div>
 
+
   <!-- DISCLAIMER -->
   <div class="bg-gray-50">
     <p class="max-w-[87%] mx-auto text-xs lg:text-sm sm:text-xs md:text-xs text-gray-500 py-4 leading-relaxed"> “Blinkit” is owned & managed by "Blink Commerce Private Limited" and is not related, linked or interconnected in whatsoever manner or nature, to “GROFFR.COM” which is a real estate services business operated by “Redstone Consultancy Services Private Limited”. </p>
   </div>
 
 </footer>
+<!-- Add google translate -->
+ <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,gu,ta,te,kn,ml,mr,bn,pa,ur',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      },
+      'google_translate_element'
+    );
+  }
+</script>
+
+<script
+  type="text/javascript"
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
 
 <!-- JS -->
 <script>
   // Toggle menu
-  menuBtn.onclick = () => {
-    menu.classList.toggle("hidden");
-  };
+ menuBtn.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
 
   // Open login modal
   document.querySelectorAll(".openLogin").forEach(btn => {
@@ -746,21 +808,23 @@
     const modal = document.getElementById("cartModal");
     modal.classList.remove("hidden");
     modal.classList.add("flex");
+    document.body.classList.add("overflow-hidden"); // stop scroll
   }
 
   function closeCart() {
     const modal = document.getElementById("cartModal");
+    const menu = document.getElementById("menu");
     modal.classList.add("hidden");
     modal.classList.remove("flex");
+    document.body.classList.remove("overflow-hidden");
   }
 
-  // Close when clicking outside modal
   document.getElementById("cartModal").addEventListener("click", function (e) {
-    if (e.target === this) {
-      closeCart();
-    }
-  });
-</script>
+  if (e.target === this) {
+    closeCart();
+  }
+});
 
+</script>
 </body>
 </html>

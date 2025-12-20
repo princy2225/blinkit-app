@@ -10,46 +10,9 @@
   <!-- bootrap icon -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-  @keyframes scaleIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  .animate-scale {
-    animation: scaleIn 0.2s ease-out;
-  }
- <style>
-  /* Google Translate UI Fix */
-  select.goog-te-combo {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 10px;
-    border: 1px solid #d1d5db;
-    font-size: 14px;
-    background-color: #fff;
-    cursor: pointer;
-  }
-
-  .goog-te-gadget {
-    font-size: 0;
-  }
-
-  .goog-te-gadget span {
-    display: none;
-  }
-
-  iframe.goog-te-banner-frame {
-    display: none !important;
-  }
-
-  body {
-    top: 0 !important;
-  }
-</style>
-
 </head>
 <body>
-
+<!-- header -->
 <header class="bg-white shadow sticky top-0 z-50 ">
   <div class="max-w-full mx-auto px-4 py-5 flex items-center justify-between">
 
@@ -184,7 +147,7 @@
 
 <!-- CART MODAL -->
 <div id="cartModal"
-  class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/75">
+  class="fixed inset-0 z-9999 hidden items-center justify-center bg-black/75">
 
   <!-- Modal Box -->
   <div
@@ -223,7 +186,7 @@
    <section
   class="w-full mx-auto mt-4 sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] rounded-2xl overflow-hidden">
 
-  <!-- TOP BANNER -->
+  <!-- TOP Banner -->
   <div
     class="h-60 flex flex-col justify-center items-start px-10 text-white rounded-2xl bg-cover bg-center" style="background-image: linear-gradient(rgba(0,50,0,0.6), rgba(0,80,0,0.3)), url('images/banner-1.jpg')">
 
@@ -273,7 +236,7 @@
 
 <!-- products images -->
     
-     <section class="w-full mx-auto sm:max-w-[90%] md:max-w-[90%] lg:max-w-[90%] grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10 gap-3 mt-5 mb-7">
+     <section class="w-full mx-auto sm:max-w-[90%] md:max-w-[90%] lg:max-w-[90%] grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10 gap-3 mt-5 mb-7 p-2">
 
       <div class="bg-white rounded-lg shadow p-2">
         <img src="images/img1.avif" alt="image1" class="w-full h-40 sm:h-36 md:h-40 object-contain rounded-md mb-4"/>
@@ -339,11 +302,11 @@
       </section>
 
 <!-- Dairy,braed prod-1 -->
-     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] mx-auto mt-7 gap-3">
+     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] mx-auto mt-7 gap-3 p-3">
         
       <div class="flex justify-between mb-5 lg:text-2xl md:text-xl sm:text-xl md:font-medium sm:font-medium">
       <h1 class="text-2xl font-bold">Dairy, Bread & Eggs</h1>
-      <a href="#" class="text-lg text-green-600 font-medium sm:mr-1">See all</a>
+      <a href="#" class="text-lg text-green-600 font-medium sm:mr-1 lg:text-lg sm:text-sm">See all</a>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6 mb-5">
@@ -412,11 +375,11 @@
      </section>
 
 <!-- Rolling paper prod-2 -->
-     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] mx-auto mt-7 gap-3">
+     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] mx-auto mt-7 gap-3 p-3">
         
       <div class="flex justify-between mb-5 lg:text-2xl md:text-xl sm:text-xl md:font-medium sm:font-medium">
       <h1 class="text-2xl font-bold">Rolling paper & tobacco</h1>
-      <a href="#" class="text-lg text-green-600 font-medium  sm:mr-1">See all</a>
+      <a href="#" class="text-lg text-green-600 font-medium lg:text-lg sm:mr-1 sm:text-sm">See all</a>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6 mb-5">
@@ -485,11 +448,11 @@
      </section>
 
 <!-- Snacks & Munchies prod-3 -->
-     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] mx-auto mt-7 gap-3">
+     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] mx-auto mt-7 gap-3 p-3">
         
       <div class="flex justify-between mb-5 lg:text-2xl md:text-xl sm:text-xl md:font-medium sm:font-medium">
       <h1 class="text-2xl font-bold">Snacks & Munchies</h1>
-      <a href="#" class="text-lg text-green-600 font-medium  sm:mr-1">See all</a>
+      <a href="#" class="text-lg text-green-600 font-medium lg:text-lg sm:mr-1 sm:text-sm">See all</a>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6 mb-5">
@@ -558,11 +521,11 @@
      </section>
 
 <!-- Cold Drinks & Juices prod-4 -->
-     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] mx-auto mt-7 gap-3">
+     <section class="w-full sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] mx-auto mt-7 gap-3 p-3">
         
       <div class="flex justify-between mb-5 lg:text-2xl md:text-xl sm:text-xl md:font-medium sm:font-medium">
       <h1 class="text-2xl font-bold">Cold Drinks & Juices</h1>
-      <a href="#" class="text-lg text-green-600 font-medium  sm:mr-1">See all</a>
+      <a href="#" class="text-lg text-green-600 font-medium lg:text-lg sm:mr-1 sm:text-sm">See all</a>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6 mb-5">
@@ -711,66 +674,52 @@
 
   </section>
 
-  <!-- FOOTER BOTTOM -->
-  <div class="border-t">
-    <div class="max-w-[87%] mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 items-center py-6 text-sm text-gray-600">
+  <!-- Fixed WhatsApp Button -->
+<a href="https://wa.me/918160238247" target="_blank" aria-label="Chat on WhatsApp"
+   class="fixed bottom-7 right-5 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition md:w-16 md:h-16">
 
-      <p>© Blink Commerce Private Limited, 2016–2025</p>
+  <i class="bi bi-whatsapp text-2xl md:text-3xl"></i>
+</a>
+<!-- FOOTER BOTTOM -->
+<div class="border-t bg-white">
+  <div class="max-w-[87%] mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4 items-center py-5 text-xs text-gray-500">
 
-       <!-- App Buttons -->
-        <div class="space-y-2">
-          <button class="w-50 bg-black text-white py-2 px-2 rounded-lg text-xs">
-            Download on App Store
-          </button>
-          <button class="w-50 bg-black text-white py-2 px-2 rounded-lg text-xs">
-            Get it on Google Play
-          </button>
-        </div>
+    <!-- COPYRIGHT -->
+    <p class="text-center md:text-left"> © Blink Commerce Private Limited, 2016-2025 </p>
 
-   <!-- Google Translate -->
-<div class="mt-6 md:mt-0">
-  <h3 class="font-semibold text-gray-900 mb-3 flex items-center gap-2"> 🌍 Language </h3>
+    <!-- APP BUTTONS -->
+    <div class="flex flex-col items-center md:items-start">
+      <button class="bg-black text-white px-3 py-1.5 rounded-md text-[11px]"> Download on App Store </button>
+    </div>
 
-  <div class="bg-gray-100 border border-gray-300 rounded-xl p-1 w-full max-w-[100px]">
-    <div id="google_translate_element"></div>
+    <!-- LANGUAGE -->
+    <div class="flex flex-col items-center md:items-start gap-1">
+      <span class="font-medium text-gray-700 flex items-center gap-1 text-xs"> 🌍 Language </span>
+
+      <a href="https://translate.google.co.in/?sl=auto&tl=en&op=translate" target="_blank" class="bg-gray-100 border border-gray-300 rounded-lg px-3 py-1 text-[11px] hover:bg-gray-200">
+        Google Translate
+      </a>
+    </div>
+
+    <!-- SOCIAL ICONS -->
+    <div class="flex justify-center md:justify-end gap-3 text-base">
+      <i class="bi bi-whatsapp hover:text-green-600 cursor-pointer"></i>
+      <i class="bi bi-facebook hover:text-blue-600 cursor-pointer"></i>
+      <i class="bi bi-instagram hover:text-pink-500 cursor-pointer"></i>
+      <i class="bi bi-twitter hover:text-sky-500 cursor-pointer"></i>
+      <i class="bi bi-linkedin hover:text-blue-700 cursor-pointer"></i>
+    </div>
+
   </div>
 </div>
-
-      <div class="flex gap-4 text-xl">
-        <i class="bi bi-whatsapp hover:text-green-600"></i>
-        <i class="bi bi-facebook hover:text-blue-600"></i>
-        <i class="bi bi-instagram hover:text-pink-500"></i>
-        <i class="bi bi-twitter hover:text-sky-500"></i>
-        <i class="bi bi-linkedin hover:text-blue-700"></i>
-      </div>
-    </div>
-  </div>
 
 
   <!-- DISCLAIMER -->
   <div class="bg-gray-50">
-    <p class="max-w-[87%] mx-auto text-xs lg:text-sm sm:text-xs md:text-xs text-gray-500 py-4 leading-relaxed"> “Blinkit” is owned & managed by "Blink Commerce Private Limited" and is not related, linked or interconnected in whatsoever manner or nature, to “GROFFR.COM” which is a real estate services business operated by “Redstone Consultancy Services Private Limited”. </p>
+    <p class="max-w-[87%] mx-auto text-xs lg:text-xs sm:text-xs md:text-xs text-gray-500 py-4 leading-relaxed"> “Blinkit” is owned & managed by "Blink Commerce Private Limited" and is not related, linked or interconnected in whatsoever manner or nature, to “GROFFR.COM” which is a real estate services business operated by “Redstone Consultancy Services Private Limited”. </p>
   </div>
 
 </footer>
-<!-- Add google translate -->
- <script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: 'en',
-        includedLanguages: 'en,hi,gu,ta,te,kn,ml,mr,bn,pa,ur',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      },
-      'google_translate_element'
-    );
-  }
-</script>
-
-<script
-  type="text/javascript"
-  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
 
 <!-- JS -->
 <script>
@@ -808,7 +757,7 @@
     const modal = document.getElementById("cartModal");
     modal.classList.remove("hidden");
     modal.classList.add("flex");
-    document.body.classList.add("overflow-hidden"); // stop scroll
+    document.body.classList.add("overflow-hidden"); 
   }
 
   function closeCart() {
